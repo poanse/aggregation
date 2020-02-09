@@ -4,13 +4,6 @@ from tqdm import tqdm
 from math import ceil
 from datetime import datetime
 
-# To do:
-# 1) generation
-# 2) adaptive time step (dt)
-# 3) differentiate between methods for user and auxiliary methods
-# 4) add B calculation
-
-
 class Buckets():
     def __init__(self, N, N0, dt, steps):
         self.N = N

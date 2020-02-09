@@ -1,0 +1,8 @@
+To do:
+0) remember about zen mode
+
+1) primary particle generation
+2) adaptive time step (dt)
+3) differentiate between user methods and auxiliary methods
+4) add B calculation
+5) vim hotkeys
