@@ -2,7 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from matplotlib.widgets import Slider
 
-filename = 'file_2020-01-19 01:48:53.txt'
+filename = 'file_2020-02-09 02:45:08.txt'
 
 def Parse_agg_data(filename):
     
@@ -53,7 +53,8 @@ plt.subplots_adjust(bottom=0.25)
 
 # bins include append in order to include last bin
 # last bin shoud be recalculated each time
-plt.hist(weight[-1,:], bins=np.append(mass_min, weight[-1,-1]), weights = mass[-1,:]/width, label=str(time[-1]))
+# plt.hist(weight[-1,:], bins=np.append(mass_min, weight[-1,-1]), weights = mass[-1,:]/width, label=str(time[-1]))
+plt.bar(mass_min, mass[-1,:]/width, np.append(mass_max[:-1] - mass_min[:-1] + 1,weight[-1,-1]), label=str(time[-1]))
 
 axcolor = 'lightgoldenrodyellow'
 axtime = plt.axes([0.25, 0.05, 0.5, 0.03], facecolor=axcolor)
@@ -63,7 +64,8 @@ def update(val):
     index = int(stime.val)
     ax.cla()
     lastbin = max(weight[index,-1], mass_min[-1])
-    ax.hist(weight[index,:], bins=np.append(mass_min, lastbin), weights = mass[index,:]/width, label=str(time[index]))
+    # ax.hist(weight[index,:], bins=np.append(mass_min, lastbin), weights = mass[index,:]/width, label=str(time[index]))
+    ax.bar(mass_min, mass[index,:]/width, np.append(mass_max[:-1] - mass_min[:-1] + 1,weight[index,-1]), label=str(time[index]))
     ax.legend()
     plt.draw()
 
