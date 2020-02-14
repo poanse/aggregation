@@ -11,5 +11,3 @@ def Solution_(k, t, N0, B):
     return y*N0
 
 Solution = np.vectorize(Solution_)
-
-#Solution([1,2,3],[1,2,3],100,1)
