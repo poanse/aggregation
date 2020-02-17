@@ -93,7 +93,7 @@ def draw_plots(ax, experiment, step, graph='plot', normalize=False):
                 label = 'time = ' + str(experiment.time[step]))
 
 
-def draw_aggregation_data(filename,graph,interactive):
+def draw_aggregation_data(filename,graph,interactive,normalize=True):
     experiment = Parse_agg_data(filename)
 
     ax = plt.subplot(111)
@@ -105,7 +105,7 @@ def draw_aggregation_data(filename,graph,interactive):
         stime = Slider(axtime, 'Step', 0, len(experiment.time)-1, valinit = 0, valstep=1)
         def update(val):
             ax.cla()
-            draw_plots(ax, experiment, step=int(stime.val), graph=graph, normalize=False)
+            draw_plots(ax, experiment, step=int(stime.val), graph=graph, normalize=normalize)
             ax.legend()
             plt.draw()
 
@@ -115,7 +115,7 @@ def draw_aggregation_data(filename,graph,interactive):
     elif interactive == False:
         for i, time in enumerate(experiment.time):
             if i % int(len(experiment.time) / 10) == 0:
-                draw_plots(ax, experiment, i, graph, normalize=True)
+                draw_plots(ax, experiment, i, graph=graph, normalize=normalize)
         ax.legend()
         plt.show()
     else:
@@ -123,4 +123,4 @@ def draw_aggregation_data(filename,graph,interactive):
 
 if __name__ == '__main__':
     filename = 'file_2020-02-08 18:45:18.txt'
-    draw_aggregation_data(filename, graph='plot', interactive=True)
+    draw_aggregation_data(filename, graph='plot', interactive=True,normalize=True)

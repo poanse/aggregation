@@ -1,6 +1,8 @@
 To do:
 0) remember about zen mode
 
+0) move experiments to the /data folder
+0) create master file (.csv) with information about experiment conditions
 1) primary particle generation
 2) adaptive time step (dt)
 3) differentiate between user methods and auxiliary methods
